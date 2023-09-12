@@ -1,0 +1,767 @@
+{% load static %}
+{% include 'includes/contacts.html' %}
+{% include 'includes/register.html' %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>RENT A CAR</title>
+    <link rel="shortcut icon" type="image/ico" href="{% static 'images/favicon.png' %}"/>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'css/open-iconic-bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+    
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/aos.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/ionicons.min.css'% }">
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap-datepicker.css' %}">
+    <link rel="stylesheet" href="{% static 'css/jquery.timepicker.css' %}">
+
+    
+    <link rel="stylesheet" href="{% static 'css/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'css/icomoon.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  </head>
+  <body>
+    
+    <!-- navbar section -->
+
+	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+	    <div class="container">
+	      <a class="navbar-brand" id="homepage" href="index.html" style="line-height: 20px;"><img src="{% static 'images/logo.png' %}" style="float: left;">ﻟﺒﺮﻛﻪ ﻣﻴﻠﻴﻨﻴﻮم ﻟﺘﺄﺟﻴﺮ اﻟﺴﻴﺎراتا<br><span>AL BARAKAH MILLENNIUM</span></a>
+	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="oi oi-menu"></span> Menu
+	      </button>
+
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav ml-auto">
+	          <li class="nav-item active"><a href="#index.html" class="nav-link">Home</a></li>
+	          <li class="nav-item"><a href="#aboutus" class="nav-link">About</a></li>
+            <li class="nav-item"><a href="#pricing" class="nav-link">Pricing</a></li>
+	          <li class="nav-item"><a href="#services" class="nav-link">Services</a></li>
+	          <li class="nav-item"><a href="" data-toggle="modal" data-target="#staticBackdrop2" class="nav-link">Contact</a></li>
+	        </ul>
+	      </div>
+	    </div>
+	  </nav>
+    <!-- END nav -->
+    
+    <!-- Header section -->
+    <div class="hero-wrap ftco-degree-bg" style="background-image: url('{% static 'images/backgroundimg2.jpeg' %}')" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text justify-content-start align-items-center justify-content-center">
+          <div class="col-lg-8 ftco-animate">
+          	<div class="text w-100 text-center mb-md-5 pb-md-5">
+	            <h1 class="mb-4">AL BARAKAH MILLENNIUM. <br>Easy Way To Rent A Car In The UAE</h1>
+	            <p style="font-size: 18px;">Book Directly from Us today no Extra Cost or fees added</p>
+	            	</div>
+	            	<div class="heading-title ml-5">
+		            	<span>Register and rent a car</span>
+	            	</div>
+	            </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End header -->
+
+    <!-- booking section -->
+
+     <section class="ftco-section ftco-no-pt bg-light">
+    	<div class="container">
+    		<div class="row no-gutters">
+    			<div class="col-md-12	featured-top">
+    				<div class="row no-gutters">
+	  					<div class="col-md-4 d-flex align-items-center">
+	  						<form action="{% url 'bookings' %}"  method= "POST" class="request-form ftco-animate" style="background-color: #6B1F26;">
+								{% csrf_token %}
+		          				<h2>Rent Your Vehicle</h2>
+			    				<div class="form-group">
+			    					<label for="" class="label">Pick-up location</label>
+			    					<input type="text" class="form-control" name="p_location" placeholder="City, Airport, Station, etc">
+			    				</div>
+			    				<div class="form-group">
+			    					<label for="" class="label">Drop-off location</label>
+			    					<input type="text" class="form-control" name="d_location" placeholder="City, Airport, Station, etc">
+			    				</div>
+			    				<div class="d-flex">
+			    					<div class="form-group mr-2">
+			                		<label for="" class="label">Pick-up date</label>
+			                		<input type="text" class="form-control" id="book_pick_date" name="p_date" placeholder="Date">
+			              		</div>
+			              		<div class="form-group ml-2">
+			                		<label for="" class="label">Drop-off date</label>
+			                		<input type="text" class="form-control" id="book_off_date" name="d_date" placeholder="Date">
+			              		</div>
+		              			</div>
+								<div class="form-group">
+									<label for="" class="label">Pick-up time</label>
+									<input type="text" class="form-control" id="time_pick" name="p_up_time" placeholder="Time">
+								</div>
+								<div class="form-group">
+									<input type="submit" value="Rent A Car Now" class="btn btn-secondary py-3 px-4">
+								</div>
+			    			</form>
+	  					</div>
+	  					<div class="col-md-8 d-flex align-items-center">
+	  						<div class="services-wrap rounded-right w-100">
+	  							<h3 class="heading-section mb-4">Better Way to Rent Your Perfect Cars</h3>
+	  							<div class="row d-flex mb-4">
+					          <div class="col-md-4 d-flex align-self-stretch ftco-animate">
+					            <div class="services w-100 text-center">
+				              	<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-route" style="color: #6B1F26;"></span></div>
+				              	<div class="text w-100">
+					                <h3 class="heading mb-2">Choose Your City</h3>
+				                </div>
+					            </div>      
+					          </div>
+					          <div class="col-md-4 d-flex align-self-stretch ftco-animate">
+					            <div class="services w-100 text-center">
+				              	<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-handshake" style="color: #6B1F26;"></span></div>
+				              	<div class="text w-100">
+					                <h3 class="heading mb-2">Select the Best Deal</h3>
+					              </div>
+					            </div>      
+					          </div>
+					          <div class="col-md-4 d-flex align-self-stretch ftco-animate">
+					            <div class="services w-100 text-center">
+				              	<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-rent" style="color: #6B1F26;"></span></div>
+				              	<div class="text w-100">
+					                <h3 class="heading mb-2">Choose your Vehicle</h3>
+					              </div>
+					            </div>      
+					          </div>
+					        </div>
+	  						</div>
+	  					</div>
+	  				</div>
+				</div>
+  		</div>
+    </section>
+
+    <!-- end booking  -->
+
+    <!-- Our Cars and what we offer section -->
+    <section class="ftco-section ftco-no-pt bg-light">
+		<div class="container">
+				<div class="row justify-content-center">
+			<div class="col-md-12 heading-section text-center ftco-animate mb-5">
+				<span class="subheading">What we offer</span>
+				<h2 class="mb-2">OUR CARS</h2>
+			</div>
+			</div>
+    		<div class="row">
+				{% for product in products %}
+    			<div class="col-md-12">
+    				<div class="carousel-car owl-carousel">
+    					<div class="item">
+    						<div class="car-wrap rounded ftco-animate">
+		    					<div class="img rounded d-flex align-items-end" style="background-image: url({{ product.product_images.url }})">
+		    					</div>
+		    					<div class="text">
+		    						<h2 class="mb-0"><a href="#">{{ product.product_name}}</a></h2>
+		    						<div class="d-flex mb-3">
+			    						<span class="cat">{{ product.product_model }}</span>
+			    						<p class="price ml-auto">aed {{ product.product_price_day }} <span>/day</span></p>
+		    						</div>
+		    						<p class="d-flex mb-0 d-block"><a href="#" class="btn btn-primary py-2 mr-1">Book now</a> <a href="#" class="btn btn-secondary py-2 ml-1">Details</a></p>
+		    					</div>
+		    				</div>
+    					</div>
+    				</div>
+    			</div>
+				{% endfor %}
+    		</div>
+		</div>
+    </section>
+    <!-- End Our cars and what we offer -->
+
+    <!-- About us section -->
+
+    <section class="ftco-section ftco-about" id="aboutus">
+			<div class="container">
+				<div class="row no-gutters">
+					<div class="col-md-6 p-md-5 img img-2 d-flex justify-content-center align-items-center" style="background-image: url({% static 'images/about.jpg' %})">
+					</div>
+					<div class="col-md-6 wrap-about ftco-animate">
+	          <div class="heading-section heading-section-white pl-md-5">
+	          	<span class="subheading">About us</span>
+	            <h2 class="mb-4">Welcome to AL BARAKAH MILLENNIUM RENT A CAR</h2>
+
+	            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+	            <p>On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word "and" and the Little Blind Text should turn around and return to its own, safe country. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+	          </div>
+					</div>
+				</div>
+			</div>
+		</section>
+    <!-- End of about US -->
+
+    <!-- Pricing section -->
+    <section class="ftco-section ftco-cart" id="pricing">
+			<div class="container">
+				<div class="row">
+    			<div class="col-md-12 ftco-animate">
+            <div class="text-center heading-section ftco-animate">
+              <span class="subheading">Price</span>
+              <h2 class="mb-3">Our Prices</h2>
+            </div>
+            <br>  
+    				<div class="car-list">
+	    				<table class="table">
+						    <thead class="thead-primary">
+						      <tr class="text-center">
+						        <th>&nbsp;</th>
+						        <th>&nbsp;</th>
+						        <th class="bg-primary heading">Per Hour Rate</th>
+						        <th class="bg-dark heading">Per Day Rate</th>
+						        <th class="bg-black heading">Leasing</th>
+						      </tr>
+						    </thead>
+						    <tbody>
+						      <tr class="">
+						      	<td class="car-image"><div class="img" style="background-image:url({% static 'images/car-1.jpg' %});"></div></td>
+						        <td class="product-name">
+						        	<h3>Cheverolet SUV Car</h3>
+						        	<p class="mb-0 rated">
+						        		<span>rated:</span>
+						        		<span class="ion-ios-star"></span>
+						        		<span class="ion-ios-star"></span>
+						        		<span class="ion-ios-star"></span>
+						        		<span class="ion-ios-star"></span>
+						        		<span class="ion-ios-star"></span>
+						        	</p>
+						        </td>
+						        
+						        <td class="price">
+						        	<p class="btn-custom"><a href="#">Rent a car</a></p>
+						        	<div class="price-rate">
+							        	<h3>
+							        		<span class="num"><small class="currency">aed</small>10.99</span>
+							        	</h3>
+						        	</div>
+						        </td>
+						        
+						        <td class="price">
+						        	<p class="btn-custom"><a href="#">Rent a car</a></p>
+						        	<div class="price-rate">
+							        	<h3>
+							        		<span class="num"><small class="currency">aed</small>60.99</span>
+							        	</h3>
+						        </div>
+						        </td>
+
+						        <td class="price">
+						        	<p class="btn-custom"><a href="#">Rent a car</a></p>
+						        	<div class="price-rate">
+							        	<h3>
+							        		<span class="num"><small class="currency">aed</small>995.99</span>
+							        	</h3>
+							        </div>
+						        </td>
+						      </tr><!-- END TR-->
+
+						      <tr class="">
+						      	<td class="car-image"><div class="img" style="background-image:url({% static 'images/car-2.jpg' %});"></div></td>
+						        <td class="product-name">
+						        	<h3>Cheverolet SUV Car</h3>
+						        	<p class="mb-0 rated">
+						        		<span>rated:</span>
+						        		<span class="ion-ios-star"></span>
+						        		<span class="ion-ios-star"></span>
+						        		<span class="ion-ios-star"></span>
+						        		<span class="ion-ios-star"></span>
+						        		<span class="ion-ios-star"></span>
+						        	</p>
+						        </td>
+						        
+						        <td class="price">
+						        	<p class="btn-custom"><a href="#">Rent a car</a></p>
+						        	<div class="price-rate">
+							        	<h3>
+							        		<span class="num"><small class="currency">aed</small>10.99</span>
+							        	</h3>
+							        </div>
+						        </td>
+						        
+						        <td class="price">
+						        	<p class="btn-custom"><a href="#">Rent a car</a></p>
+						        	<div class="price-rate">
+							        	<h3>
+							        		<span class="num"><small class="currency">aed</small>60.99</span>
+							        	</h3>
+							        </div>
+						        </td>
+
+						        <td class="price">
+						        	<p class="btn-custom"><a href="#">Rent a car</a></p>
+						        	<div class="price-rate">
+							        	<h3>
+							        		<span class="num"><small class="currency">aed</small>995.99</span>
+							        	</h3>
+							        </div>
+						        </td>
+						      </tr><!-- END TR-->
+
+						      <tr class="">
+						      	<td class="car-image"><div class="img" style="background-image:url({% static 'images/car-3.jpg' %});"></div></td>
+						        <td class="product-name">
+						        	<h3>Cheverolet SUV Car</h3>
+						        	<p class="mb-0 rated">
+						        		<span>rated:</span>
+						        		<span class="ion-ios-star"></span>
+						        		<span class="ion-ios-star"></span>
+						        		<span class="ion-ios-star"></span>
+						        		<span class="ion-ios-star"></span>
+						        		<span class="ion-ios-star"></span>
+						        	</p>
+						        </td>
+						        
+						        <td class="price">
+						        	<p class="btn-custom"><a href="#">Rent a car</a></p>
+						        	<div class="price-rate">
+							        	<h3>
+							        		<span class="num"><small class="currency">aed</small>10.99</span>
+							        	</h3>
+							        </div>
+						        </td>
+						        
+						        <td class="price">
+						        	<p class="btn-custom"><a href="#">Rent a car</a></p>
+						        	<div class="price-rate">
+							        	<h3>
+							        		<span class="num"><small class="currency">aed</small> 60.99</span>
+							        	</h3>
+							        </div>
+						        </td>
+
+						        <td class="price">
+						        	<p class="btn-custom"><a href="#">Rent a car</a></p>
+						        	<div class="price-rate">
+							        	<h3>
+							        		<span class="num"><small class="currency">aed</small> 995.99</span>
+							        	</h3>
+							        </div>
+						        </td>
+						      </tr><!-- END TR-->
+
+						      <tr class="">
+						      	<td class="car-image"><div class="img" style="background-image:url({% static 'images/car-4.jpg'%})"></div></td>
+						        <td class="product-name">
+						        	<h3>Cheverolet SUV Car</h3>
+						        	<p class="mb-0 rated">
+						        		<span>rated:</span>
+						        		<span class="ion-ios-star"></span>
+						        		<span class="ion-ios-star"></span>
+						        		<span class="ion-ios-star"></span>
+						        		<span class="ion-ios-star"></span>
+						        		<span class="ion-ios-star"></span>
+						        	</p>
+						        </td>
+						        
+						        <td class="price">
+						        	<p class="btn-custom"><a href="#">Rent a car</a></p>
+						        	<div class="price-rate">
+							        	<h3>
+							        		<span class="num"><small class="currency">aed</small> 10.99</span>
+							        	</h3>
+							        </div>
+						        </td>
+						        
+						        <td class="price">
+						        	<p class="btn-custom"><a href="#">Rent a car</a></p>
+						        	<div class="price-rate">
+							        	<h3>
+							        		<span class="num"><small class="currency">aed</small> 60.99</span>
+							        	</h3>
+							        </div>
+						        </td>
+
+						        <td class="price">
+						        	<p class="btn-custom"><a href="#">Rent a car</a></p>
+						        	<div class="price-rate">
+							        	<h3>
+							        		<span class="num"><small class="currency">aed</small>995.99</span>
+							        	</h3>
+							        </div>
+						        </td>
+						      </tr><!-- END TR-->
+
+
+						      <tr class="">
+						      	<td class="car-image"><div class="img" style="background-image:url({% static 'images/car-5.jpg' %})"></div></td>
+						        <td class="product-name">
+						        	<h3>Cheverolet SUV Car</h3>
+						        	<p class="mb-0 rated">
+						        		<span>rated:</span>
+						        		<span class="ion-ios-star"></span>
+						        		<span class="ion-ios-star"></span>
+						        		<span class="ion-ios-star"></span>
+						        		<span class="ion-ios-star"></span>
+						        		<span class="ion-ios-star"></span>
+						        	</p>
+						        </td>
+						        
+						        <td class="price">
+						        	<p class="btn-custom"><a href="#">Rent a car</a></p>
+						        	<div class="price-rate">
+							        	<h3>
+							        		<span class="num"><small class="currency">aed</small> 10.99</span>
+							        	</h3>
+							        </div>
+						        </td>
+						        
+						        <td class="price">
+						        	<p class="btn-custom"><a href="#">Rent a car</a></p>
+						        	<div class="price-rate">
+							        	<h3>
+							        		<span class="num"><small class="currency">aed</small> 60.99</span>
+							        	</h3>
+							        </div>
+						        </td>
+
+						        <td class="price">
+						        	<p class="btn-custom"><a href="#">Rent a car</a></p>
+						        	<div class="price-rate">
+							        	<h3>
+							        		<span class="num"><small class="currency">aed</small>950</span>
+							        	</h3>
+							        </div>
+						        </td>
+						      </tr><!-- END TR-->
+
+
+						      <tr class="">
+						      	<td class="car-image"><div class="img" style="background-image:url({% static 'images/car-6.jpg' %})"></div></td>
+						        <td class="product-name">
+						        	<h3>Cheverolet SUV Car</h3>
+						        	<p class="mb-0 rated">
+						        		<span>rated:</span>
+						        		<span class="ion-ios-star"></span>
+						        		<span class="ion-ios-star"></span>
+						        		<span class="ion-ios-star"></span>
+						        		<span class="ion-ios-star"></span>
+						        		<span class="ion-ios-star"></span>
+						        	</p>
+						        </td>
+						        
+						        <td class="price">
+						        	<p class="btn-custom"><a href="#">Rent a car</a></p>
+						        	<div class="price-rate">
+							        	<h3>
+							        		<span class="num"><small class="currency">aed</small> 10.99</span>
+							        	</h3>
+							        </div>
+						        </td>
+						        
+						        <td class="price">
+						        	<p class="btn-custom"><a href="#">Rent a car</a></p>
+						        	<div class="price-rate">
+							        	<h3>
+							        		<span class="num"><small class="currency">aed</small> 60.99</span>
+							        	</h3>
+							        </div>
+						        </td>
+
+						        <td class="price">
+						        	<p class="btn-custom"><a href="#">Rent a car</a></p>
+						        	<div class="price-rate">
+							        	<h3>
+							        		<span class="num"><small class="currency">aed</small> 995.99</span>
+							        	</h3>
+							        </div>
+						        </td>
+						      </tr><!-- END TR-->
+						    </tbody>
+						  </table>
+					  </div>
+    			</div>
+    		</div>
+			</div>
+		</section>
+
+    <!-- End pricing section -->
+
+    <!-- start services section -->
+		<section class="ftco-section" id="services">
+			<div class="container">
+				<div class="row justify-content-center mb-5">
+          <div class="col-md-7 text-center heading-section ftco-animate">
+          	<span class="subheading">Services</span>
+            <h2 class="mb-3">Our Services</h2>
+          </div>
+        </div>
+				<div class="row">
+					<div class="col-md-3">
+						<div class="services services-2 w-100 text-center">
+            	<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-wedding-car"></span></div>
+            	<div class="text w-100">
+                <h3 class="heading mb-2">Rent</h3>
+                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+              </div>
+            </div>
+					</div>
+					<div class="col-md-3">
+						<div class="services services-2 w-100 text-center">
+            	<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-transportation"></span></div>
+            	<div class="text w-100">
+                <h3 class="heading mb-2">Car Hire</h3>
+                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+              </div>
+            </div>
+					</div>
+					<div class="col-md-3">
+						<div class="services services-2 w-100 text-center">
+            	<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-car"></span></div>
+            	<div class="text w-100">
+                <h3 class="heading mb-2">Airport Transfer</h3>
+                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+              </div>
+            </div>
+					</div>
+					<div class="col-md-3">
+						<div class="services services-2 w-100 text-center">
+            	<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-transportation"></span></div>
+            	<div class="text w-100">
+                <h3 class="heading mb-2">Whole City Tour</h3>
+                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+              </div>
+            </div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="ftco-section ftco-intro" style="background-image: url({% static 'images/bg_3.jpg' %})">
+			<div class="overlay"></div>
+			<div class="container">
+				<div class="row justify-content-end">
+					<div class="col-md-6 heading-section heading-section-white ftco-animate">
+            <h2 class="mb-3">Do You Want To Earn With Us? So Don't Be Late.</h2>
+            <a href="#"data-toggle="modal" data-target="#modalRegisterForm" class="btn btn-primary btn-lg">Rent a Vehicle</a>
+          </div>
+				</div>
+			</div>
+		</section>
+
+    <!-- End services section -->
+
+    <!-- start staff section -->
+    <section class="ftco-section testimony-section bg-light">
+      <div class="container">
+        <div class="row justify-content-center mb-5">
+          <div class="col-md-7 text-center heading-section ftco-animate">
+          	<span class="subheading">Staff</span>
+            <h2 class="mb-3">Our Team</h2>
+          </div>
+        </div>
+        <div class="row ftco-animate">
+          <div class="col-md-12">
+            <div class="carousel-testimony owl-carousel ftco-owl">
+              <div class="item">
+                <div class="testimony-wrap rounded text-center py-4 pb-5">
+                  <div class="user-img mb-2" style="background-image: url({% static 'images/Elzod.jpeg' %})">
+                  </div>
+                  <div class="text pt-4">
+                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                    <p class="name">Elzod</p>
+                    <span class="position">Marketing Manager</span>
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="testimony-wrap rounded text-center py-4 pb-5">
+                  <div class="user-img mb-2" style="background-image: url({% static 'images/person_2.jpg' %})">
+                  </div>
+                  <div class="text pt-4">
+                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                    <p class="name">Roger Scott</p>
+                    <span class="position">Interface Designer</span>
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="testimony-wrap rounded text-center py-4 pb-5">
+                  <div class="user-img mb-2" style="background-image: url({% static 'images/person_3.jpg' %})">
+                  </div>
+                  <div class="text pt-4">
+                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                    <p class="name">Roger Scott</p>
+                    <span class="position">UI Designer</span>
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="testimony-wrap rounded text-center py-4 pb-5">
+                  <div class="user-img mb-2" style="background-image: url({% static 'images/person_1.jpg' %})">
+                  </div>
+                  <div class="text pt-4">
+                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                    <p class="name">Roger Scott</p>
+                    <span class="position">Web Developer</span>
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="testimony-wrap rounded text-center py-4 pb-5">
+                  <div class="user-img mb-2" style="background-image: url({% static 'images/person_1.jpg' %})">
+                  </div>
+                  <div class="text pt-4">
+                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                    <p class="name">Roger Scott</p>
+                    <span class="position">System Analyst</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- end staff section -->
+
+    <!-- Vehicles foesale section -->
+    <section class="ftco-section">
+      <div class="container">
+        <div class="row justify-content-center mb-5">
+          <div class="col-md-7 heading-section text-center ftco-animate">
+          	<span class="subheading">for-sale</span>
+            <h2>Vehicles for Sale</h2>
+          </div>
+        </div>
+        <div class="row d-flex">
+          <div class="col-md-4 d-flex ftco-animate">
+          	<div class="blog-entry justify-content-end">
+              <a href="blog-single.html" class="block-20" style="background-image: url({% static 'images/image_1.jpg' %})">
+              </a>
+              <div class="text pt-4">
+                <h3 class="heading mt-2"><a href="#">Why Lead Generation is Key for Business Growth</a></h3>
+                <p><a href="#" class="btn btn-primary">Read more</a></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 d-flex ftco-animate">
+          	<div class="blog-entry justify-content-end">
+              <a href="blog-single.html" class="block-20" style="background-image: url({% static 'images/image_2.jpg' %});">
+              </a>
+              <div class="text pt-4">
+                <h3 class="heading mt-2"><a href="#">Why Lead Generation is Key for Business Growth</a></h3>
+                <p><a href="#" class="btn btn-primary">Read more</a></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 d-flex ftco-animate">
+          	<div class="blog-entry">
+              <a href="blog-single.html" class="block-20" style="background-image: url({% static 'images/image_3.jpg' %});">
+              </a>
+              <div class="text pt-4">
+                <h3 class="heading mt-2"><a href="#">Why Lead Generation is Key for Business Growth</a></h3>
+                <p><a href="#" class="btn btn-primary">Read more</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>	
+    <!-- end vehicles for sale section -->
+    <!-- modals -->
+    <!-- End modals -->
+    <!-- contact us modal -->
+    <!-- footer section start -->
+    <footer class="ftco-footer ftco-bg-dark ftco-section" style="padding-bottom: 0.5px;">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2"><a href="#" class="logo">AL BARAKAH MILLENNIUM</a></h2>
+              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+              <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4 ml-md-5">
+              <h2 class="ftco-heading-2">Information</h2>
+              <ul class="list-unstyled">
+                <li><a href="#aboutus" class="py-2 d-block">About</a></li>
+                <li><a href="#services" class="py-2 d-block">Services</a></li>
+                <li><a href="#" class="py-2 d-block">Term and Conditions</a></li>
+                <li><a href="#pricing" class="py-2 d-block">Best Price Guarantee</a></li>
+                <li><a href="#" class="py-2 d-block">Privacy &amp; Cookies Policy</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md">
+             <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2">Customer Support</h2>
+              <ul class="list-unstyled">
+                <li><a href="#" class="py-2 d-block">FAQ</a></li>
+                <li><a href="#" class="py-2 d-block">Payment Option</a></li>
+                <li><a href="#" class="py-2 d-block">Booking Tips</a></li>
+                <li><a href="#" class="py-2 d-block">How it works</a></li>
+                <li><a href="#" class="py-2 d-block">Contact Us</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4">
+            	<h2 class="ftco-heading-2">Have a Questions?</h2>
+            	<div class="block-23 mb-3">
+	              <ul>
+	                <li><span class="icon icon-map-marker"></span><span class="text">Saheel Tower, Office 1207, Al-Nahda-1, Dubai, UAE</span></li>
+	                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+971 54 426 53 55</span></a></li>
+                  <li><a href="#"><span class="icon icon-phone"></span><span class="text">+971 58 164 76 04</span></a></li>
+	                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">elzodfayzullaev110@gmail.com</span></a></li>
+	              </ul>
+	            </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 text-center">
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- end footer section -->
+    
+  
+
+  <!-- loader -->
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+
+  <script src="{% static 'js/jquery.min.js' %}"></script>
+  <script src="{% static 'js/jquery-migrate-3.0.1.min.js' %}"></script>
+  <script src="{% static 'js/popper.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'js/jquery.easing.1.3.js' %}"></script>
+  <script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
+  <script src="{% static 'js/jquery.stellar.min.js' %}"></script>
+  <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+  <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+  <script src="{% static 'js/aos.js' %}"></script>
+  <script src="{% static 'js/jquery.animateNumber.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap-datepicker.js' %}"></script>
+  <script src="{% static 'js/jquery.timepicker.min.js' %}"></script>
+  <script src="{% static 'js/scrollax.min.js' %}"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+  <script src="{% static 'js/google-map.js' %}"></script>
+  <script src="{% static 'js/main.js' %}"></script>
+    
+  </body>
+</html>
