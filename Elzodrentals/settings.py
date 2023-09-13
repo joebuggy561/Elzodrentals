@@ -131,6 +131,9 @@ STATICFILES_DIRS = [
     'car_rentals_page/static',
 ]
 
+STATICFILES_DIRS = [BASE_DIR / "static"] # new
+STATIC_ROOT = BASE_DIR / "staticfiles" # new
+
 MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR /'media'
 
